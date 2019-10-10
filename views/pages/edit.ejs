@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+
+    <% include ../partials/header %>
+
+    <div class="container">
+        <h1>Edit Book</h1>
+
+        <form action="/savebook" method="post">
+        <div class="form-group">
+            <label for="">Book ID</label>
+            <input type="text" class="form-control" name="ID" aria-describedby="helpId" value="<%= detail.ID %>" readonly>
+        </div>
+        <div class="form-group">
+            <label for="">Book Name</label>
+            <input type="text" class="form-control" name="bookName" aria-describedby="helpId" value="<%= detail.bookName %>">
+        </div>
+        <div class="form-group">
+            <label for="">Author</label>
+            <input type="text" class="form-control" name="author" aria-describedby="helpId" value="<%= detail.author %>">
+        </div>
+        <div class="form-group">
+            <label for="">Publication Date</label>
+            <input type="text" class="form-control" name="date" aria-describedby="helpId" value="<%= detail.date %>">
+        </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="text" class="form-control" name="price" aria-describedby="helpId" value="<%= detail.price %>">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="/products" >  Cancel</a>
+        </form>
+        
+
+    </div>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>

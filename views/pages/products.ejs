@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+    <% include ../partials/header %>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Book Title</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Class in java script shount be ant key for data -->
+                <% books.forEach(function(thisbook){  %>
+                <tr>
+                    <td><%= thisbook.ID %></td>
+                    <td><%= thisbook.bookName %></td>
+                    <td><%= thisbook.price %> Bath</td>
+                    <td>
+                        <a class="btn btn-info" href="/detail/<%= thisbook.ID %>" role="button">View</a>
+                        <a class="btn btn-primary" href="/edit/<%= thisbook.ID %>" role="button">Edit</a>
+                        <a class="btn btn-danger" role="button" href="" data-toggle="modal"
+                            data-target="#confirm-delete<%= thisbook.ID %>" href="">Delete</a>
+
+                        <div class="modal fade" id="confirm-delete<%= thisbook.ID %>" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        Confirmation
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure to delete this item ? ( <%= thisbook.bookName %> )
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cancel</button>
+                                        <a class="btn btn-primary" role="button"
+                                            href="/delete/<%= thisbook.ID %>">OK</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <% }); %>
+
+            </tbody>
+        </table>
+    </div>
+    <center><a name="" id="" class="btn btn-primary" href="/bookAdd" role="button">Add new Book</a></center>
+
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>
